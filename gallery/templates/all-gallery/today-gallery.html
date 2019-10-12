@@ -5,16 +5,21 @@
 <div class="container">
 
   <!-- Looping through gallery   -->
-  {% for gallery_item in gallery %}
+{% for gallery_item in gallery %}
 
   <div class="row">
-    <!-- displaying Gallery category -->
+    <!-- displaying Gallery categories -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <h2 class="text-center"> {{ gallery_item.title }} </h2>
     </div>
 
-  </div>
+    <!--Display Gallery Category images  -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <img src="{{gallery_item.Category_image.url}}" class="img-responsive" alt="Image">
+    </div>
 
+  </div>
+  
   {% empty %}
   <div class="row">
     <!--From bootstrap-->
@@ -104,7 +109,5 @@
       <!--from bootstrap-->
   
   {% endfor %}
-
 </div>
-
 {% endblock %}

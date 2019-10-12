@@ -1,23 +1,12 @@
 import datetime as dt
 from django.http  import HttpResponse,Http404
 from django.shortcuts import render,redirect
-from .models import Image
+from .models import Category
 
 # Create your views here.
 def welcome(request):
     return HttpResponse('Welcome to the Best Gallery ')
 
-
-def gallery_of_day(request):
-    date = dt.date.today()
-    html = f'''
-        <html>
-            <body>
-                <h1> {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
 
 def convert_dates(dates):
 
@@ -57,13 +46,13 @@ def past_days_gallery(request, past_date):
     if date == dt.date.today():
         return redirect(gallery_today)
 
-    gallery = Article.days_news(date)
-    return render(request, 'all-gallery/past-gallery.html',{"date": date,"news":gallery})
+    gallery = Image.days_gallery(date)
+    return render(request, 'all-gallery/past-gallery.html',{"date": date,"gallery":gallery})
 
 def gallery_today(request):
     date = dt.date.today()
-    gallery = Article.todays_gallery()
-    return render(request, 'all-gallery/today-gallery.html', {"date": date,"news":gallery})
+    gallery = Image.todays_gallery()
+    return render(request, 'all-gallery/today-gallery.html', {"date": date,"gallery":gallery})
 
 # Create your views here.
 def welcome(request):
@@ -75,13 +64,20 @@ def gallery_of_day(request):
 
 def search_results(request):
 
-    if 'image' in request.GET and request.GET["image"]:
-        search_term = request.GET.get("image")
-        searched_images = Image.search_by_name(search_term)
+    if 'category' in request.GET and request.GET["category"]:
+        search_term = request.GET.get("category")
+        searched_category = Category.search_by_name(search_term)
         message = f"{search_term}"
 
-        return render(request, 'all-gallery/search.html',{"message":message,"images": searched_images})
+        return render(request, 'all-gallery/search.html',{"message":message,"categories":searched_category})
 
     else:
         message = "You haven't searched for any term"
         return render(request, 'all-gallery/search.html',{"message":message})
+
+def category(request,category_id):
+    try:
+        category = Category.objects.get(id = category_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"all-gallery/category.html", {"category":category})

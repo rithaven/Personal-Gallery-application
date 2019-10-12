@@ -25,6 +25,7 @@ class Location(models.Model):
   
 class Category(models.Model):
     name = models.CharField(max_length=15)
+    Category_image = models.ImageField(upload_to = 'photos/',null=True)
 
     def __str__(self):
 
@@ -38,10 +39,13 @@ class Category(models.Model):
 
     def update_category(self,**kwargs):
         self.objects.filter(id = self.pk).update(**kwargs)
+
     @classmethod
-    def search_by_title(cls,search_term):
-      gallery = cls.objects.filter(title__icontains=search_term)
+    def search_by_name(cls,search_term):
+      gallery = cls.objects.filter(name=search_term)
       return gallery
+
+    
     
     
 
@@ -61,6 +65,7 @@ class Image(models.Model):
 
     def delete_image(self):
         Image.objects.filter(id = self.pk).delete()
+
     def update_image(self, **kwargs):
         self.objects.filter(id = self.pk).update(**kwargs)
 
@@ -68,10 +73,12 @@ class Image(models.Model):
     def all_gallery(cls):
       photos = cls.objects.all()
       return photos
+
     @classmethod
     def photo_locations(cls):
       photos = cls.objects.order_by('location')
       return photos
+
     @classmethod
     def photo_categories(cls):
       photos = cls.objects.order_by('category')
@@ -82,15 +89,15 @@ class Image(models.Model):
         today = dt.date.today()
         gallery = cls.objects.filter(pub_date__date = today)
         return gallery
+
     @classmethod
     def days_gallery(cls,date):
         gallery = cls.objects.filter(pub_date__date = date)
         return gallery
-    @classmethod
-    def search_by_name(cls,search_term):
-      gallery = cls.objects.filter(name_icontains=search_term)
-      return gallery
 
+    
+
+    
 
 class Meta:
         ordering = ['name']
