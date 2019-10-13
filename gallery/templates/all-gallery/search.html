@@ -3,24 +3,14 @@
 <div class="container">
 
   <div class="row">
-    {% if categories%}
-      <h2>Found {{ categories|length }} of searched term {{message}}</h2>
-    {% else %}
-      <h2> Found 0 categories for the search term {{message}}</h2>
-    {% endif %}
-
+    {% for image in images %}
+    {% if images %}
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 columns">
+      <!-- <h1>Image for {{category.name}}</h1> -->
+      <img src="{{image.image.url}}" alt="Image" class="img-fluid">
+    </div>
   </div>
-
-  <div class="row">
-
-  {% if categories %}
-    {% for category in categories %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{category.name}}</h1>
-          <img src="{{gallery_item.Category_image.url}}" class="img-responsive" alt="Image">
-      </div>
-    {% endfor %}
   {% endif %}
-  </div>
+  {% endfor %}
 </div>
 {% endblock %}

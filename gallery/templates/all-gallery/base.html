@@ -1,26 +1,26 @@
 {% load bootstrap4 %}
 {% load static%}
 <!DOCTYPE html>
-<html>
+<html leng="en">
 <head>
-<meta charset="utf-8">
-
-  {% if title %}
-  <title>The Best Gallery - {{title}}</title>
-  {% else %}
-    <title> The Best Gallery </title>
-  {% endif %}
+<meta charset="utf-8" initial-scale="1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>The Galleria</title>
 
   {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/basegallery.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
   {% endblock %}
 
 </head>
 <body>
     {% include "navbar.html" %}
 
-    {% block content %} <h1 class='text-center'>Photos for {{date|date:"l d-F Y"}}</h1> {%endblock%}
+    {% block content %}
+    
+    {%endblock%}
   
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

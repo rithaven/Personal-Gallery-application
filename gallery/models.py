@@ -3,16 +3,16 @@ from django.db import models
 class Location(models.Model):
   name= models.CharField(max_length=20)
 
-  def __str__(self):
-    return self.name
-    try:
-      Location = Location.objects.get(name = 'KAKIRU')
-      print('Location found')
-    except DoesNotExist:
-      print('Location was not found')
+  # def __str__(self):
+  #   return self.name
+  #   try:
+  #     Location = Location.objects.get(name = 'KAKIRU')
+  #     print('Location found')
+  #   except DoesNotExist:
+  #     print('Location was not found')
 
-  class Meta:
-        ordering = ['name']
+  # class Meta:
+  #       ordering = ['name']
 
   def save_lacation(self):
     self.save()
@@ -25,7 +25,7 @@ class Location(models.Model):
   
 class Category(models.Model):
     name = models.CharField(max_length=15)
-    Category_image = models.ImageField(upload_to = 'photos/',null=True)
+  
 
     def __str__(self):
 
@@ -40,22 +40,18 @@ class Category(models.Model):
     def update_category(self,**kwargs):
         self.objects.filter(id = self.pk).update(**kwargs)
 
-    @classmethod
-    def search_by_name(cls,search_term):
-      gallery = cls.objects.filter(name=search_term)
-      return gallery
-
+   
     
     
     
 
 class Image(models.Model):
-    image= models.ImageField(upload_to = 'photos/', null = True)
+    image= models.ImageField(upload_to = 'categories/', null = True)
     name=  models.CharField(max_length=20)
     description = models.CharField(max_length=60)
     category = models.ForeignKey('Category', on_delete = models.CASCADE, null='True', blank=True)
     location = models.ForeignKey('Location', on_delete = models.CASCADE, null='True', blank=True)
-    pub_date = models.DateTimeField(auto_now_add=True)
+   
 
     def __str__(self):
         return self.name
@@ -70,34 +66,28 @@ class Image(models.Model):
         self.objects.filter(id = self.pk).update(**kwargs)
 
     @classmethod
-    def all_gallery(cls):
+    def captured(cls):
       photos = cls.objects.all()
       return photos
 
     @classmethod
-    def photo_locations(cls):
+    def mages_locations(cls):
       photos = cls.objects.order_by('location')
       return photos
 
     @classmethod
-    def photo_categories(cls):
+    def images_categories(cls):
       photos = cls.objects.order_by('category')
       return photos
+    @classmethod
+    def get_photo(cls,id):
+      phot=cls.objects.get(id=id)
+      return phot
     
     @classmethod
-    def todays_gallery(cls):
-        today = dt.date.today()
-        gallery = cls.objects.filter(pub_date__date = today)
-        return gallery
-
-    @classmethod
-    def days_gallery(cls,date):
-        gallery = cls.objects.filter(pub_date__date = date)
-        return gallery
-
-    
-
-    
+    def search_by_category(cls,search_term):
+      images = cls.objects.filter(name__icontains=search_term)
+      return images
 
 class Meta:
         ordering = ['name']
