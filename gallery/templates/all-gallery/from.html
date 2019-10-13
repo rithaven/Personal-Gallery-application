@@ -1,0 +1,12 @@
+{% extends 'all-gallery/base.html' %}
+{% block content %}
+
+<div class="row">
+  {% for image in photos %}
+  <div class="col-xs-4 col-sm-4 col-lg-4 columns">
+    <img src="{{image.image.url}}" alt="Image" class="img-fluit">
+  </div>
+  {%endfor%}
+  
+</div>
+{%endblock%}
