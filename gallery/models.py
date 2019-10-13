@@ -3,8 +3,8 @@ from django.db import models
 class Location(models.Model):
   name= models.CharField(max_length=20)
 
-  # def __str__(self):
-  #   return self.name
+  def __str__(self):
+    return self.name
   #   try:
   #     Location = Location.objects.get(name = 'KAKIRU')
   #     print('Location found')
@@ -24,8 +24,7 @@ class Location(models.Model):
     self.objects.filter(id = self.pk).update(**kwargs)
   
 class Category(models.Model):
-    name = models.CharField(max_length=15)
-  
+    name = models.CharField(max_length=20)
 
     def __str__(self):
 
@@ -71,7 +70,7 @@ class Image(models.Model):
       return photos
 
     @classmethod
-    def mages_locations(cls):
+    def images_locations(cls):
       photos = cls.objects.order_by('location')
       return photos
 
@@ -80,13 +79,13 @@ class Image(models.Model):
       photos = cls.objects.order_by('category')
       return photos
     @classmethod
-    def get_photo(cls,id):
-      phot=cls.objects.get(id=id)
+    def get_foto(cls,id):
+      phot =cls.objects.get(id=id)
       return phot
     
     @classmethod
     def search_by_category(cls,search_term):
-      images = cls.objects.filter(name__icontains=search_term)
+      images = cls.objects.filter(category__name=search_term)
       return images
 
 class Meta:

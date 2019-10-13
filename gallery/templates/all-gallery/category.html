@@ -5,7 +5,9 @@
  <div class="container">
 
    <div class="row">
-     <img src="{{category.image.url}}"  class="img-responsive" alt="">
+     {% for image in photos%}
+     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 columns">
+     <img src="{{image.image.url}}"  class="img-responsive" alt="">
    </div>
 
    <div class="row">
@@ -15,5 +17,7 @@
    <div class="row">
      <p>{{category.image}}</p>
    </div>
-
+</div>
+{%endfor%}
+</div>
  {% endblock %}
