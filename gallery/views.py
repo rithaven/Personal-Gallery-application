@@ -1,6 +1,6 @@
 # import datetime as dt
 from django.http  import HttpResponse,Http404
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from .models import Image
 
 # Create your views here.
@@ -70,7 +70,8 @@ def search_results(request):
 
     else:
         message = "You haven't searched for anything,write category to search"
-        return render(request, 'all-gallery/search.html',{"message":message})
+        
+    return render(request, 'all-gallery/search.html',{"message":message})
 
 def display_locations_of_images(request):
     fotos=Image.images_locations()

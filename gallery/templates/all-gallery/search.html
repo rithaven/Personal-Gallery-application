@@ -3,11 +3,11 @@
 <div class="container">
 
   <div class="row">
-    {% for image in images %}
+    {% for phot in images %}
     {% if images %}
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 columns">
       <!-- <h1>Image for {{category.name}}</h1> -->
-      <img src="{{image.image.url}}" alt="Image" class="img-fluid">
+      <img src="{{image.phot.url}}" alt="Image" class="img-fluid">
     </div>
   </div>
   {% endif %}
