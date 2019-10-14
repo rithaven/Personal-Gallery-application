@@ -5,7 +5,7 @@ class ImageTestClass(TestCase):
 
     # Set up method
     def setUp(self):
-        self.wecode= Image(name = 'food'description ='akako ni keza pe')
+        self.wecode= Image(name = 'food',description ='akako ni keza pe')
         self.wecode.save_image()
     # Testing  instance
     def test_instance(self):
@@ -61,10 +61,31 @@ class CategoryTestclass(TestCase):
 
 class LocationTestclass(TestCase):
     def setUp(self):
-        self.baby =Location(name ='baby')
+        self.nyanza = Location(name ='nyanza')
 
     def test_instance(self):
-        
+        self.assertTrue(isinstance(self.nyanza, Location))
+
+    def test_save_method(self):
+        self.baby.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations)>0)
+
+    def test_delete_method(self):
+        self.new_location =Location(name ='KARAMA')
+        self.new_location.save_location()
+        self.new_location.delete_location()
+        locations = Location.objects.all()
+        self.assertEqual(len(locations),0)
+
+    def test_update_method(self):
+        self.Rwamagana = Location(name='KARAMA')
+        self.Rwamagana.save_lacation()
+        self.Rwamagana = Location(name = 'Rwamagana')
+        self.Rwamagana.save_lacation()
+        self.Rwamagana.update_location(name= 'Rwamagana')
+        locations = Location.objects.filter(name='Rwamagana')
+        self.assertEqual(len(locations),1)
 
     
 
