@@ -13,23 +13,26 @@
   <div class="row">
   {% for phot in captured %}
   <!-- Large modal -->
-<img src="{{phot.image.url}}" alt="{{phot.name}}" class="img-fluid myimage" data-toggle="modal" data-target="#{{phot.id}}">
-
+  
+    
+   <button> <img src="{{phot.image.url}}" alt="{{phot.name}}" class="img-fluid myimage" data-toggle="modal" data-target="#{{phot.id}}"></button> 
+    
+  
 <!--Model-->
 <div class="modal fade" id="{{phot.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">{{phot.name}}</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle"><b>Name: </b>{{phot.name}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
         <img src="{{phot.image.url}}" alt="{{phot.name}}" class="img-fluid myimage">
-        <p>Description:{{phot.description}}</p>
-        <p>Taken from:{{phot.location}}</p>
-        <p>Category:{{phot.category}}</p>
+        <p><b>Description:</b>  {{phot.description}}</p>
+        <p><b>Taken from:</b>  {{phot.location}}</p>
+        <p><b>Category:</b>  {{phot.category}}</p>
         
         </div>
       </div>
