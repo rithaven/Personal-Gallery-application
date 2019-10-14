@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body style="width:100%">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <div class="navbar">
-            <a class="active" href="{% url 'myphoto' %}"><i class="fa fa-fw fa-home"></i>Home   </a>
+            <a class="active" href="{% url 'myphoto' %}"><i class="fa fa-fwfa-home"></i>Home </a>
+                
           </div>
-        <h1 class="center">Welcome to the Best Wedding Gallery</h1>
-      </div>
-      <!-- Adding a search form  -->
-      <div class="col-sm-4 col-md-4 navbar-right">
+          <h1 class="center">Welcome to the Best Wedding Gallery</h1>
+        </div>
+        <!-- Adding a search form  -->
+        <div class="col-sm-4 col-md-4 navbar-right">
 
-        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+          <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+            
 
-          <div class="input-group">
-            <input type="search" class="form-control" placeholder="Search by image category" name="image">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="fas fa-search"></i>..Go</button>
+            <div class="input-group">
+              <input type="search" class="form-control" placeholder="Search by image category" name="image">
+                
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="fasfa-search"></i>..Go</button>
+                    
+              </div>
             </div>
-          </div>
 
-        </form>
+          </form>
+        </div>
+        <!-- search form end -->
+
       </div>
-      <!-- search form end -->
-      
-    </div>
-  </nav>
-</body>
+    </nav>
+  </body>
 </html>

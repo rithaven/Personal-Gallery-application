@@ -15,7 +15,7 @@ class LocationTestclass(TestCase):
 
     def test_delete_method(self):
         self.new_location =Location(name ='KARAMA')
-        self.new_location.save_location()
+        self.new_location.save_lacation()
         self.new_location.delete_location()
         locations = Location.objects.all()
         self.assertEqual(len(locations),0)

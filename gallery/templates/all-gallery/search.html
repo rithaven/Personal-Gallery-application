@@ -3,7 +3,7 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md-12 d-flex justify-content-center mb-5">
+    <div class="columns">
     {% if images%}
       <h2>{{message}}</h2>
     {% else %}
@@ -12,8 +12,8 @@
     {% endif %}
   
     </div>
-  
-    <div class="col-md-8  justify-content-center mb-5">
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 columns">
         {% for phot in images %}
         {% if images %}
       <img src="{{phot.image.url}}" alt="Image" class="img-fluid">

@@ -56,7 +56,7 @@ class Image(models.Model):
     def delete_image(self):
         Image.objects.filter(id = self.pk).delete()
 
-    def update_image(self, **kwargs):
+    def update_image(self,**kwargs):
         self.objects.filter(id = self.pk).update(**kwargs)
 
     @classmethod
@@ -73,6 +73,7 @@ class Image(models.Model):
     def images_categories(cls):
       photos = cls.objects.order_by('category')
       return photos
+
     @classmethod
     def get_foto(cls,id):
       phot =cls.objects.get(id=id)
@@ -80,9 +81,9 @@ class Image(models.Model):
     
     @classmethod
     def search_by_category(cls,search_term):
-      images = cls.objects.filter(category__name=search_term)
+      images = cls.objects.filter(category__name__icontains=search_term)
       return images
 
-class Meta:
-        ordering = ['name']
+    class Meta:
+       ordering = ['name']
 
