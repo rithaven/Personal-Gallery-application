@@ -39,11 +39,6 @@ class Category(models.Model):
     def update_category(self,**kwargs):
         self.objects.filter(id = self.pk).update(**kwargs)
 
-   
-    
-    
-    
-
 class Image(models.Model):
     image= models.ImageField(upload_to = 'categories/', null = True)
     name=  models.CharField(max_length=20)

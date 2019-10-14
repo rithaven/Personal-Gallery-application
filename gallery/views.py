@@ -14,6 +14,7 @@ def search_results(request):
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
         searched_images = Image.search_by_category(search_term)
+
         message = f"{search_term}"
 
         return render(request, 'all-gallery/search.html',{"message":message,"images":searched_images})
@@ -21,7 +22,7 @@ def search_results(request):
     else:
         message = "You haven't searched for anything,write category to search"
 
-    return render(request, 'all-gallery/search.html',{"message":message})
+        return render(request, 'all-gallery/search.html',{"message":message})
 
 def display_locations_of_images(request):
     fotos=Image.images_locations()

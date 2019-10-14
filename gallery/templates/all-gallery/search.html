@@ -3,16 +3,29 @@
 <div class="container">
 
   <div class="row">
-    {% for phot in images %}
-    {% if images %}
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 columns">
-      <h1> {{phot.image.location}}</h1>
-      <img src="{{phot.image.url}}" alt="Image" class="img-fluid">
-      {% else%}
-      <h1>Not found!!</h1>
+    <div class="col-md-12 d-flex justify-content-center mb-5">
+    {% if images%}
+      <h2>{{message}}</h2>
+    {% else %}
+      <h2> Found 0 images for the search term<u><strong style="color:brown"> {{message}}</u></strong></h2> 
+    
+    {% endif %}
+  
     </div>
-  </div>
-  {% endif %}
-  {% endfor %}
-</div>
+  
+    <div class="col-md-8  justify-content-center mb-5">
+        {% for phot in images %}
+        {% if images %}
+      <img src="{{phot.image.url}}" alt="Image" class="img-fluid">
+    
+  
+     {% endif %}
+     {% endfor %}
+       </div>
+      </div>
+     </div>
+    </div>
+ 
+ 
+
 {% endblock %}
