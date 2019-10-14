@@ -33,6 +33,7 @@
         <p><b>Description:</b>  {{phot.description}}</p>
         <p><b>Taken from:</b>  {{phot.location}}</p>
         <p><b>Category:</b>  {{phot.category}}</p>
+        
         <button class="rounded btn-primary" onclick="copyurl('{{phot.id}}-url')">Copy Image link</button>
         <input class="form-control input-lg" type="text" value="http://127.0.0.1:8000{{phot.image.url}}" id="{{phot.id}}-url">
         <!--Script for copying images link-->
