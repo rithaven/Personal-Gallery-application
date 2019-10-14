@@ -20,7 +20,7 @@ class ImageTestClass(TestCase):
         self.new_image=Image(name='umugeni', description='the beautifull wedding')
         self.new_image.save_image()
         self.new_image.delete_image()
-        images=Image.objects.all()
+        images= Image.objects.all()
         self.assertEqual(len(images),1)
 
     def test_update_method(self):
@@ -29,8 +29,8 @@ class ImageTestClass(TestCase):
         self.pic=Image(name='KAKA',description='ntugasibe')
         self.pic.update_image(name='KAKA')
         self.pic.save_image()
-        images=Image.objects.filter(name='danvic')
-        photos=Image.objects.all()
+        images=Image.objects.filter(name='KAKA')
+        photos= Image.objects.all()
         self.assertEqual(len(images),1)
 
 class CategoryTestclass(TestCase):
@@ -42,21 +42,21 @@ class CategoryTestclass(TestCase):
 
     def test_save_method(self):
         self.pictur.save_category()
-        categories=Category.objects.all()
+        categories= Category.objects.all()
         self.assertTrue(len(categories)>0)
     def test_delete_method(self):
         self.new_category=Category(name='bridy')
         self.new_category.save_category()
         self.new_category.delete_category()
-        categories=Category.objects.all()
+        categories= Category.objects.all()
         self.assertEqual(len(categories),0)
     def test_update_category(self):
-        self.trust=Category(name ='dressing')
+        self.trust= Category(name ='dressing')
         self.trust.save_category()
-        self.trust=Category(name='danser')
+        self.trust= Category(name='danser')
         self.trust.save_category()
         self.trust.update_category(name='KAKA')
-        categories=Category.objects.filter(name='party')
+        categories=  Category.objects.filter(name='party')
         self.assertEqual(len(categories),1)
 
 class LocationTestclass(TestCase):

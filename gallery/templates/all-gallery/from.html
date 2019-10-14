@@ -6,6 +6,7 @@
   {% for photos in fotos %}
 
   <div class="col-xs-4 col-sm-4 col-lg-4 columns">
+    <p>{{photos.location.name}}</p>
    <button> <img src="{{photos.image.url}}" alt="Image" class="img-fluit" data-toggle="modal" data-target="#{{photos.id}}"></button>
 
    <div class="modal fade" id="{{photos.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
