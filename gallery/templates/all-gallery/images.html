@@ -10,32 +10,27 @@
     <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="Location">Location</button></a>
   </div>
   </div>
-  <div class="gallery" id="gallery">
-  <div class="mb-3 pics animation all 1">
+  <div class="row">
   {% for phot in captured %}
   <!-- Large modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#phot.id">
-<img src="{{phot.image.url}}" alt="{{phot.name}}" class="img-fluid myimage">
-</button>
+<img src="{{phot.image.url}}" alt="{{phot.name}}" class="img-fluid myimage" data-toggle="modal" data-target="#{{phot.id}}">
+
 <!--Model-->
-<div class="modal fade" id="phot.id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="{{phot.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">{{phot.name}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
         <img src="{{phot.image.url}}" alt="{{phot.name}}" class="img-fluid myimage">
-        <p>{{phot.description}}</p>
-        <p>{{phot.location}}</p>
-        <p>{{photo.category}}</p>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+        <p>Description:{{phot.description}}</p>
+        <p>Taken from:{{phot.location}}</p>
+        <p>Category:{{phot.category}}</p>
+        
         </div>
       </div>
     </div>
