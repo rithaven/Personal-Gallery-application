@@ -13,8 +13,8 @@ class ImageTestClass(TestCase):
     # Testing Save Method
     def test_save_method(self):
         self.wecode.save_Image()
-        images = Image.objects.all()
-        self.assertTrue(len(images) > 0)
+        myphoto = Image.objects.all()
+        self.assertTrue(len(myphoto) > 0)
 
     def test_delete_method(self):
         self.new_image=Image(name='umugeni', description='the beautifull wedding')
@@ -67,7 +67,7 @@ class LocationTestclass(TestCase):
         self.assertTrue(isinstance(self.nyanza, Location))
 
     def test_save_method(self):
-        self.baby.save_location()
+        self.nyanza.save_location()
         locations = Location.objects.all()
         self.assertTrue(len(locations)>0)
 
