@@ -1,9 +1,15 @@
+
 {%extends 'all-gallery/base.html'%} 
 {% block content %}
 <div class="container">
-
-  <div class="row">
-    <div class="columns">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12 d-flex justify-content-center mb-5">
+          <button><a href="{% url 'locations' %}">Location</a></button>
+          <!-- <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="Location">Location</button> -->
+        </div>
+      </div>
+  
     {% if images%}
       <h2>{{message}}</h2>
     {% else %}
@@ -11,9 +17,7 @@
     
     {% endif %}
   
-    </div>
-  <div class="row">
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 columns">
+    
         {% for phot in images %}
         {% if images %}
       <img src="{{phot.image.url}}" alt="Image" class="img-fluid">
@@ -23,8 +27,7 @@
      {% endfor %}
        </div>
       </div>
-     </div>
-    </div>
+     
  
  
 
