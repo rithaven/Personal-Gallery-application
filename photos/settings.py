@@ -89,8 +89,8 @@ if config('MODE')=="dev":
            'NAME': config('DB_NAME'),
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
-        #    'HOST': config('DB_HOST'),
-        #    'PORT': '',
+           'HOST': config('DB_HOST'),
+           'PORT': '',
        }
        
    }
@@ -128,22 +128,22 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/Kigali'
+Tprodi'
 
-USE_I18N = True
+Uprod
 
-USE_L10N = True
+Uprod
 
-USE_TZ = True
+Uprod
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
+#prodScript, Images)
+#prodect.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+Sprod
+Sprod
+ prod, "static"),
+)prod
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
