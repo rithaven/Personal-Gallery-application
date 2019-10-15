@@ -33,7 +33,7 @@ $ git clone:https://github.com/rithaven/Personal-Gallery-application
 * Flask
 * postgres
 ## live site:
-https://personal-blog11.herokuapp.com/
+https://thegallery1.herokuapp.com/
 ## For more info:
 Contact me veneruth4@gmail.com
 
