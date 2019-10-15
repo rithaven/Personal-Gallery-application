@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'photos.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-MODE:config("MODE", default="dev")
+MODE:config("MODE", default="prod")
 #development
-if config('MODE')=="dev":
+if config('MODE')=="prod":
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
