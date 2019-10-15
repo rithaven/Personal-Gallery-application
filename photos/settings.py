@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
 import os
 import django_heroku
 import dj_database_url
@@ -80,9 +79,9 @@ WSGI_APPLICATION = 'photos.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-MODE:config("MODE", default="prod")
+MODE:config("MODE", default="dev")
 #development
-if config('MODE')=="prod":
+if config('MODE')=="dev":
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
