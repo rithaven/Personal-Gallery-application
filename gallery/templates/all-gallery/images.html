@@ -5,18 +5,23 @@
 
 <!--Grid row-->
 <div class="row">
+
   <div class="col-md-12 d-flex justify-content-center mb-5">
     <button><a href="{% url 'locations' %}">Location</a></button>
     <!-- <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="Location">Location</button> -->
   </div>
 </div>
+
+<div class="container">
+{% for phot in captured %}
 <div class="row">
-  {% for phot in captured %}
+  <div class="col-md-3" style="width:25em;">
   <!-- Large modal -->
 
-
+   
   <button> <img src="{{phot.image.url}}" alt="{{phot.name}}" class="img-fluidmyimage" data-toggle="modal" data-target="#{{phot.id}}"></button>
-      
+  {% endfor%}
+  {% for phot in captured %}
   <!--Model-->
   <div class="modal fade" id="{{phot.id}}" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -32,32 +37,31 @@
 
         </div>
         <div class="modal-body">
-          <img src="{{phot.image.url}}" alt="{{phot.name}}" class="img-fluid
-            myimage">
+          <img src="{{phot.image.url}}" alt="{{phot.name}}" class="img-fluidmyimage">
           <p><b>Description:</b> {{phot.description}}</p>
           <p><b>Taken from:</b> {{phot.location}}</p>
           <p><b>Category:</b> {{phot.category}}</p>
 
           <button class="rounded btn-primary"
             onclick="copyurl('{{phot.id}}-url')">Copy Image link</button>
-          <input class="form-control input-lg" type="text"
-            value="http://127.0.0.1:8000{{phot.image.url}}"
-            id="{{phot.id}}-url">
+          <input class="form-control input-lg" type="text" value="http://127.0.0.1:8000{{phot.image.url}}" id="{{phot.id}}-url">
+            
+            
           <!--Script for copying images link-->
           <script type="text/javascript">
-        function copyurl(element){
+           function copyurl(element){
           var cpvar=document.getElementById(element);
           cpvar.select();
           document.execCommand('copy');
           alert("successfully copied the image link:"+cpvar.value);
         }
-        </script>
+          </script>
         </div>
       </div>
     </div>
   </div>
-
-
-  {% endfor%}
+ 
+{% endfor%}
+</div>
 </div>
 {% endblock%}
