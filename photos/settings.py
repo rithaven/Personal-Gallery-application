@@ -128,22 +128,18 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-Tprodi'
-
-Uprod
-
-Uprod
-
-Uprod
+TIME_ZONE ='Africa/Kigali'
+USE_I18N= True
+USE_L10N = True
+USE_TZ =True
 
 
 #prodScript, Images)
 #prodect.com/en/1.11/howto/static-files/
-
-Sprod
-Sprod
- prod, "static"),
-)prod
+STATIC_URL= '/static/'
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR, 'static'),
+)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
