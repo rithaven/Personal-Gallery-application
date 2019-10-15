@@ -22,14 +22,14 @@ You need the following to start working on the project on your local computer:
 -A text Editor
 ```
 ## Installation
-$ git clone:https://github.com/rithaven/personal-blog
+$ git clone:https://github.com/rithaven/Personal-Gallery-application
 
 ## Build & Deployment
  You need to have fully cloned it to run locally.
- $./start.sh
+ Run it by: $ python manage.py runserver
 ## Technologies Used
 * Python v3.6
-* Boostrap
+* django-Boostrap4
 * Flask
 * postgres
 ## live site:
