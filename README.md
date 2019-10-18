@@ -1,4 +1,4 @@
-# [Personal-Gallery](https://personal-blog11.herokuapp.com/)
+# [Personal-Gallery](https://thegallery1.herokuapp.com/)
 ## 14th-December-2019
 ## By Ritha
 ## Decription
